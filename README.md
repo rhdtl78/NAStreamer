@@ -28,6 +28,8 @@ nextjs 참조<br>
 10. react - <a>https://reactjs.org/</a>
 11. 프레젠테이션 컴포넌트와 컨테이너 컴포넌트 - <a>https://blueshw.github.io/2017/06/26/presentaional-component-container-component/</a>
 12. 리액트 스타일링 - <a>https://jsramblings.com/2017/09/22/understand-the-react-styling-paradigms.html</a>
+13. Commanderjs(나중에 파일 다운로드 받거나 forever하면 좋을 듯) - <a>https://github.com/tj/commander.js</a>
+14. foreverjs(파일 계속 켜놓기) -<a>https://github.com/foreverjs/forever</a>
 <hr />
 추천 eslint+prettier<br>
 vscode setting<br>
