@@ -26,6 +26,7 @@ nextjs 참조<br>
 8. video - <a>https://video-react.js.org/</a>
 9. <a>https://medium.com/@LetMeEatTheCake/next-js-2-0%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%EB%B3%B4%EB%8B%A4-%EB%82%B3%EC%9D%80-universal-javascript-%EC%95%B1%EC%9D%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-70fb32714ad4</a>
 10. react - <a>https://reactjs.org/</a>
+11. 프레젠테이션 컴포넌트와 컨테이너 컴포넌트 - <a>https://blueshw.github.io/2017/06/26/presentaional-component-container-component/</a>
 <hr />
 추천 eslint+prettier<br>
 vscode setting<br>
