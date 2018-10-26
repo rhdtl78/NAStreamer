@@ -6,11 +6,13 @@ const app = next({
   dev
 })
 const handle = app.getRequestHandler()
-
+const api = require('./routes/api.js')
 app
   .prepare()
   .then(() => {
     const server = express()
+
+    server.get('/api', api.video)
 
     server.get('*', (req, res) => {
       return handle(req, res)

@@ -1,10 +1,10 @@
 import Layout from '../components/layout/Layout'
-const Category = () => (
+const Explore = () => (
   <Layout>
     <div>
-      <p>Hello It is Category</p>
+      <p>Hello It is Explore</p>
     </div>
   </Layout>
 )
 
-export default Category
+export default Explore
