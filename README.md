@@ -21,13 +21,13 @@ NAS + Streaming Service With Node Engine And RaspberryPi
 <hr />
 <h4>기본 파일 구조</h4>
 
-5. route<br>
+1. route<br>
    나중에 여기서 api 를 다룰 예정<br>
-6. pages<br>
+2. pages<br>
    nextjs 참조<br>
-7. container<br>
+3. container<br>
    상태관리 컴포넌트는 여기로<br>
-8. components<br>
+4. components<br>
    컴포넌트는 밑에 페이지 별로 폴더가 있고 그 페이지 안에 쓰는 것을 담아둔다<br>
    레이아웃 컴포넌트들은 레이아웃 폴더에(메타태그 같은건 레이아웃에서)<br>
 
@@ -50,6 +50,7 @@ NAS + Streaming Service With Node Engine And RaspberryPi
 14. foreverjs(파일 계속 켜놓기) - <a>https://github.com/foreverjs/forever</a>
 15. git-flow(우아한 형제들) - <a>http://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html</a>
 16. git-flow(ihoneymon) - <a>https://gist.github.com/ihoneymon/a28138ee5309c73e94f9</a>
+17. react tutorial(velopert) - <a>https://velopert.com/3676</a>
     <hr />
         추천 eslint+prettier<br>
         vscode setting<br>
