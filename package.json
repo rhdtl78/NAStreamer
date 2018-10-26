@@ -19,7 +19,8 @@
     "express": "^4.16.4",
     "next": "^7.0.2",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "prettier-eslint": "^8.8.2"
