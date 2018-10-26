@@ -14,13 +14,15 @@
   "dependencies": {
     "@material-ui/core": "^3.3.1",
     "@material-ui/icons": "^3.0.1",
+    "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
     "eslint-config-airbnb": "^17.1.0",
     "express": "^4.16.4",
     "next": "^7.0.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "video-react": "^0.13.0"
   },
   "devDependencies": {
     "prettier-eslint": "^8.8.2"
