@@ -17,8 +17,7 @@ const styles = theme => ({
     flexGrow: 1
   },
   menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+    marginLeft: -12
   },
   title: {
     display: 'none',
@@ -70,18 +69,11 @@ const styles = theme => ({
 })
 
 const Header = props => {
-  const { classes } = props
+  const { classes, handleOpen } = props
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography
             className={classes.title}
             variant="h6"
@@ -91,18 +83,14 @@ const Header = props => {
             NaStreamer
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-            />
-          </div>
+          <IconButton
+            className={classes.menuButton}
+            onClick={handleOpen}
+            color="inherit"
+            aria-label="Open drawer"
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
