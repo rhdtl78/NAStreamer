@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-import Header from './Header'
-import Footer from './Footer'
+import Header from '../../components/layout/Header'
+import Footer from '../../components/layout/Footer'
 
 /*const layoutStyle = {
   margin: 20,
