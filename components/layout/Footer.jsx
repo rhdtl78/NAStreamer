@@ -1,36 +1,76 @@
-import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
-
-const styles = () => ({
-  root: {
-    width: '100%'
-  },
-  footer: {
-    width: '100%',
-    backgroundColor: '#E0E0E0',
-    paddingTop: '2rem',
-    paddingBottom: '2rem'
-  }
-})
 
 const Footer = props => {
-  const { classes } = props
   return (
-    <footer className={classes.footer}>
-      <Grid container direction="column" justify="center" alignItems="center">
-        <h3>Powered by ReNex </h3>
-        <p>
-          푸터 영역 모 알아서 집어넣으면 될듯 대충 깃허브 아이콘 넣고 그러지머
-        </p>
-        <small>2018.10.26</small>
-      </Grid>
+    <footer className="page-footer font-small bg-primary">
+      <div className="container-fluid text-center text-md-left">
+
+        <div className="row">
+
+  
+          <div className="col-md-6 mt-md-0 mt-3">
+
+          <h5 className="text-uppercase">Footer </h5>
+          <p>Here you can use rows and columns here to organize your footer content.</p>
+
+        </div>
+
+
+        <div className="col-md-3 mb-md-0 mb-3">
+
+            <h5 className="text-uppercase">Links</h5>
+
+            <ul className="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+ 
+
+          <div className="col-md-3 mb-md-0 mb-3">
+            <h5 className="text-uppercase">Links</h5>
+
+            <ul className="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+
+
+       </div>
+  
+
+    </div>
+      <div className="footer-copyright text-center py-3">© 2018 Copyright:
+        <a> Nasstream Team</a>
+    </div>
+      
+ 
+    
     </footer>
   )
 }
+export default Footer
 
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(Footer)

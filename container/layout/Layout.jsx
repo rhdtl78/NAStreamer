@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../../components/layout/Header'
+import Footer from '../../components/layout/Footer'
 class Layout extends React.Component {
   constructor(props) {
     super(props)
@@ -33,8 +34,11 @@ class Layout extends React.Component {
         </Head>
         <Header />
         {children}
+        <Footer />
       </div>
     )
   }
 }
+
 export default Layout
+
