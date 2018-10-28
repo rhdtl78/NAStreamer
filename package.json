@@ -19,7 +19,9 @@
     "next": "^7.0.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
     "reactstrap": "^6.5.0",
+    "redux-actions": "^2.6.3",
     "redux-thunk": "^2.3.0",
     "video-react": "^0.13.0"
   },
