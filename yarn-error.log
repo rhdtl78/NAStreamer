@@ -1,0 +1,66 @@
+Arguments: 
+  /home/kether/.nvm/versions/node/v10.9.0/bin/node /usr/share/yarn/bin/yarn.js
+
+PATH: 
+  /home/kether/.nvm/versions/node/v10.9.0/bin:/home/kether/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  10.9.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/kether/Git/NAStreamer/package.json: Unexpected token < in JSON at position 511
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1136:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:98:30)
+      at /usr/share/yarn/lib/cli.js:109:13
+
+npm manifest: 
+  {
+    "name": "nastreamer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+      "dev": "node server.js",
+      "build": "next build",
+      "start": "NODE_ENV=production node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@zeit/next-css": "^1.0.1",
+      "axios": "^0.18.0",
+      "eslint": "^5.8.0",
+      "eslint-config-airbnb": "^17.1.0",
+      "express": "^4.16.4",
+      "next": "^7.0.2",
+      "react": "^16.6.0",
+      "react-dom": "^16.6.0",
+  <<<<<<< HEAD
+      "react-redux": "^5.1.0",
+  =======
+      "react-icons": "^3.2.2",
+  >>>>>>> 9b2f2689e834cdda7dccd000f37824bffd84ee9b
+      "reactstrap": "^6.5.0",
+      "redux-actions": "^2.6.3",
+      "redux-thunk": "^2.3.0",
+      "video-react": "^0.13.0"
+    },
+    "devDependencies": {
+      "prettier-eslint": "^8.8.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
