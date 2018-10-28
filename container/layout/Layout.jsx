@@ -1,10 +1,5 @@
 import Head from 'next/head'
-import CssBaseline from '@material-ui/core/CssBaseline'
-
 import Header from '../../components/layout/Header'
-import Footer from '../../components/layout/Footer'
-import HeadDrawer from '../../components/layout/HeadDrawer'
-
 class Layout extends React.Component {
   constructor(props) {
     super(props)
@@ -29,12 +24,15 @@ class Layout extends React.Component {
             name="viewport"
             content="width=device-width, user-scalable=no"
           />
+          <link 
+          rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+          crossorigin="anonymous" />
+
         </Head>
-        <CssBaseline />
-        <Header handleOpen={this.handleOpen} />
-        <HeadDrawer open={open} onClose={this.handleClose} />
+        <Header />
         {children}
-        <Footer />
       </div>
     )
   }
