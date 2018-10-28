@@ -80,7 +80,7 @@ const Header = props => {
             color="inherit"
             noWrap
           >
-            NaStreamer
+            NaStreamer!
           </Typography>
           <div className={classes.grow} />
           <IconButton
