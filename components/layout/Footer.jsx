@@ -19,7 +19,7 @@ const Footer = props => {
   return (
     <footer className={classes.footer}>
       <Grid container direction="column" justify="center" alignItems="center">
-        <h3>Powered by renex </h3>
+        <h3>Powered by ReNex </h3>
         <p>
           푸터 영역 모 알아서 집어넣으면 될듯 대충 깃허브 아이콘 넣고 그러지머
         </p>
