@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 const Footer = props => {
   return (
-    <footer className="page-footer font-small bg-primary">
+    <footer className="page-footer font-small bg-secondary">
       <div className="container-fluid text-center text-md-left">
 
         <div className="row">
@@ -64,7 +64,7 @@ const Footer = props => {
 
     </div>
       <div className="footer-copyright text-center py-3">© 2018 Copyright:
-        <a> Nasstream Team</a>
+        <a> ReNex Team</a>
     </div>
       
  
