@@ -1,8 +1,9 @@
-import HeadDrawer from '../components/layout/HeadDrawer'
+import VideoList from '../container/player/VideoList'
+import 'bootstrap/dist/css/bootstrap.min.css'
 const example = () => {
   return (
     <div>
-      <HeadDrawer open />
+      <VideoList />
     </div>
   )
 }
