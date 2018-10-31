@@ -3,6 +3,9 @@ import { Navbar, NavbarBrand } from 'reactstrap'
 import Link from 'next/link'
 import { MdReorder } from 'react-icons/md'
 const Header = props => {
+  const handleOpen = () => {
+    props.handleOpen(true)
+  }
   return (
     <Navbar color="primary">
       <NavbarBrand>
@@ -10,7 +13,7 @@ const Header = props => {
           <span style={{ color: '#fff' }}>Nastreamer</span>
         </Link>
       </NavbarBrand>
-      <MdReorder className="ml-auto" />
+      <MdReorder className="ml-auto" onClick={handleOpen} />
     </Navbar>
   )
 }
