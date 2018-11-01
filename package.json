@@ -18,15 +18,13 @@
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "express": "^4.16.4",
+    "multer": "^1.4.1",
     "next": "^7.0.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-icons": "^3.2.2",
     "react-redux": "^5.1.0",
-<<<<<<< HEAD
     "react-sidebar": "^3.0.2",
-=======
->>>>>>> feature/front-50
     "reactstrap": "^6.5.0",
     "redux-actions": "^2.6.3",
     "redux-thunk": "^2.3.0",
