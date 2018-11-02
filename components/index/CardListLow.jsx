@@ -10,6 +10,10 @@ const CardListLow = props => {
         <small>{props.uploader}</small>
       </div>
       <style jsx>{`
+        .card{
+          margin:0.3rem;
+          padding:0.3rem;
+        }
         .VideoListCard {
         }
         .VideoListCard__img {
@@ -21,6 +25,7 @@ const CardListLow = props => {
           padding: 1.25rem;
           font-size: 80%;
         }
+
       `}</style>
     </Card>
     )

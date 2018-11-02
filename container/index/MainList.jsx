@@ -42,10 +42,10 @@ class MainList extends React.Component {
         return (
             <div className="VideoList">
                 {this.cardList()}
-                
                 <style jsx>{`
                     .VideoList {
-
+                        display:flex;
+                        
                     }
                 `}</style>               
             </div>
