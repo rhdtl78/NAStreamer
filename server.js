@@ -13,7 +13,8 @@ app
     const server = express()
 
     server.get('/api', api.video)
-    server.use(express.static('public'));
+    server.post('/upload', api.upload)
+    server.use(express.static('public'))
 
     server.get('*', (req, res) => {
       return handle(req, res)
