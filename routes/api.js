@@ -1,4 +1,5 @@
 const fs = require('fs')
+
 module.exports = {
   video: async (req, res) => {
     const path = 'explore/trailer.mp4'
@@ -27,5 +28,6 @@ module.exports = {
       res.writeHead(200, head)
       fs.createReadStream(path).pipe(res)
     }
-  }
+  },
+  upload: async (req, res) => {}
 }

@@ -5,6 +5,9 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({
   dev
 })
+
+const multer = require('multer')
+
 const handle = app.getRequestHandler()
 const api = require('./routes/api.js')
 app
@@ -12,8 +15,15 @@ app
   .then(() => {
     const server = express()
 
+    const upload = multer({ dest: 'explore/public' })
+
     server.get('/api', api.video)
-    server.use(express.static('public'));
+
+    server.post('/upload', upload.single('avatar'), (req, res) => {
+      console.log(req.file)
+    })
+
+    server.use(express.static('public'))
 
     server.get('*', (req, res) => {
       return handle(req, res)
