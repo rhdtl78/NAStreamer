@@ -8,7 +8,7 @@ const Index = () => (
       <br />
       <h6>최근 업로드된 영상</h6>
       <Col>
-        <Row xs="12" sm="12" xl="3" lg="3" md="4" xs="6" sm="6">
+        <Row xs="12" xl="3" lg="3" md="4" xs="6" sm="6">
             <MainList className=""/>
         </Row>
       </Col>
