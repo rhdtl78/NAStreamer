@@ -24,6 +24,7 @@
     "react-dom": "^16.6.0",
     "react-dropzone": "^7.0.1",
     "react-icons": "^3.2.2",
+    "react-loading": "^2.0.3",
     "react-redux": "^5.1.0",
     "react-sidebar": "^3.0.2",
     "reactstrap": "^6.5.0",

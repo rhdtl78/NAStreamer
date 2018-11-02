@@ -1,6 +1,4 @@
 const fs = require('fs')
-const multer = require('multer')
-const upload = multer({ dest: 'explore/public' })
 module.exports = {
   video: async (req, res) => {
     const path = 'explore/trailer.mp4'
