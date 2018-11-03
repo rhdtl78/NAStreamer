@@ -10,16 +10,16 @@ import Layout from '../container/layout/Layout'
 class Uploader extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isLoading: false }
+    this.state = { isLoaded: true }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.isLoading) return { isLoading: nextProps.isLoading }
+    if (nextProps.success) return { isLoaded: true }
     return null
   }
 
   UploadFiles = acceptedFiles => {
-    this.setState({ isLoading: true })
+    this.setState({ isLoaded: false })
     acceptedFiles.forEach(file => this.props.uploadVideoFile(file))
   }
 
@@ -27,7 +27,7 @@ class Uploader extends React.Component {
     return (
       <Layout>
         <Container>
-          {this.state.isLoading === false ? (
+          {this.state.isLoaded ? (
             <Dropzone name="avatar" onDrop={this.UploadFiles} />
           ) : (
             <ReactLoading
@@ -43,10 +43,9 @@ class Uploader extends React.Component {
   }
 }
 
-const mapStateToProps = (state, { success }) => {
-  return {
-    isLoading: state.success
-  }
+const mapStateToProps = ({ upload }) => {
+  if (upload[0]) return upload[0]
+  return {}
 }
 
 const mapDispatchToProps = dispatch => {

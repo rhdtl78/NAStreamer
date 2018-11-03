@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
+import upload from './reducer_upload'
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  upload
 })
 
 export default rootReducer
