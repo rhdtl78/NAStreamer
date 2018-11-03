@@ -7,13 +7,15 @@ const app = next({
 })
 const handle = app.getRequestHandler()
 const api = require('./routes/api.js')
+const indexroute = require('./routes/index')
 app
   .prepare()
   .then(() => {
     const server = express()
 
     server.get('/api', api.video)
-    server.use(express.static('public'));
+    server.use('/upload', indexroute)
+    server.use(express.static('public'))
 
     server.get('*', (req, res) => {
       return handle(req, res)
