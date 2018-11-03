@@ -17,6 +17,11 @@ app
     server.use('/upload', indexroute)
     server.use(express.static('public'))
 
+    server.get('/player/:filename', (req, res) => {
+      const actualPage = '/player'
+      const queryParams = { title: req.params.filename }
+      app.render(req, res, actualPage, queryParams)
+    })
     server.get('*', (req, res) => {
       return handle(req, res)
     })
