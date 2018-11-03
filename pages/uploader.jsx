@@ -1,45 +1,34 @@
 import Dropzone from 'react-dropzone'
-import axios from 'axios'
 import ReactLoading from 'react-loading'
 import { Container } from 'reactstrap'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { uploadVideoFile } from '../actions'
 
 import Layout from '../container/layout/Layout'
 
 class Uploader extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { loading: false }
+    this.state = { isLoading: false }
   }
 
-  UploadFile = file => {
-    const formData = new FormData()
-    formData.append('avatar', file)
-    console.log(this)
-    axios
-      .post('/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
-      .then(function() {
-        console.log('SUCCESS!!')
-      })
-      .catch(function() {
-        console.log('FAILURE!!')
-      })
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.isLoading) return { isLoading: nextProps.isLoading }
+    return null
+  }
+
+  UploadFiles = acceptedFiles => {
+    this.setState({ isLoading: true })
+    acceptedFiles.forEach(file => this.props.uploadVideoFile(file))
   }
 
   render() {
     return (
       <Layout>
         <Container>
-          {this.state.loading === false ? (
-            <Dropzone
-              name="avatar"
-              onDrop={acceptedFiles => {
-                acceptedFiles.forEach(this.UploadFile)
-              }}
-            />
+          {this.state.isLoading === false ? (
+            <Dropzone name="avatar" onDrop={this.UploadFiles} />
           ) : (
             <ReactLoading
               type="balls"
@@ -54,4 +43,17 @@ class Uploader extends React.Component {
   }
 }
 
-export default Uploader
+const mapStateToProps = (state, { success }) => {
+  return {
+    isLoading: state.success
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ uploadVideoFile }, dispatch)
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Uploader)
