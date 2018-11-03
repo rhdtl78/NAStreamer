@@ -27,5 +27,16 @@ module.exports = {
       res.writeHead(200, head)
       fs.createReadStream(path).pipe(res)
     }
+  },
+  explore: async (req, res) => {
+    let result = []
+    fs.readdir('./explore/public', function(err, file) {
+      if (err) res.json({ result: [], success: false })
+      file.forEach(file => {
+        var ext = file.substring(file.length - 3, file.length)
+        if (ext === 'mp4' || ext === 'avi' || ext === 'mkv') result.push(file)
+      })
+      res.json({ result: result, success: true })
+    })
   }
 }
