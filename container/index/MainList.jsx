@@ -1,4 +1,5 @@
 import CardListLow from '../../components/index/CardListLow'
+import { Row } from 'reactstrap'
 class MainList extends React.Component {
     constructor(props) {
         super(props)
@@ -41,11 +42,12 @@ class MainList extends React.Component {
     render() {
         return (
             <div className="VideoList">
-                {this.cardList()}
+                <Row xl="3" lg="3" md="4" sm="6" xs="6" >
+                    {this.cardList()}
+                </Row>
                 <style jsx>{`
                     .VideoList {
                         display:flex;
-                        
                     }
                 `}</style>               
             </div>

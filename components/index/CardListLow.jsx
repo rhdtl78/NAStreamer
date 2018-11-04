@@ -11,10 +11,7 @@ const CardListLow = props => {
       </div>
       <style jsx>{`
         .card{
-          margin:0.3rem;
-          padding:0.3rem;
-        }
-        .VideoListCard {
+          margin:0.2rem;
         }
         .VideoListCard__img {
           width: 100%;
@@ -25,7 +22,6 @@ const CardListLow = props => {
           padding: 1.25rem;
           font-size: 80%;
         }
-
       `}</style>
     </Card>
     )
