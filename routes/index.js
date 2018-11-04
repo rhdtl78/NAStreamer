@@ -13,7 +13,9 @@ const upload = multer({
   })
 })
 
-router.post('/', upload.single('avatar'), function(req, res) {
+router.post('/', upload.single('avatar'), function(req, res, err) {
+  if (err) {
+  }
   res.json({ success: true })
 })
 
