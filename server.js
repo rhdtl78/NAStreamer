@@ -16,6 +16,7 @@ app
     server.get('/api', api.video)
     server.use('/upload', indexroute)
     server.use(express.static('public'))
+    server.get('/api/hello', api.explore)
 
     server.get('*', (req, res) => {
       return handle(req, res)
