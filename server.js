@@ -18,6 +18,11 @@ app
     server.use(express.static('public'))
     server.get('/api/hello', api.explore)
 
+    server.get('/player/:filename', (req, res) => {
+      const actualPage = '/player'
+      const queryParams = { title: req.params.filename }
+      app.render(req, res, actualPage, queryParams)
+    })
     server.get('*', (req, res) => {
       return handle(req, res)
     })

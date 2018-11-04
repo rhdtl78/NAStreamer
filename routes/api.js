@@ -1,7 +1,7 @@
 const fs = require('fs')
 module.exports = {
   video: async (req, res) => {
-    const path = 'explore/trailer.mp4'
+    const path = `explore/public/${req.query.filename}`
     const stat = fs.statSync(path)
     const fileSize = stat.size
     const range = req.headers.range
