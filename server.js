@@ -16,7 +16,7 @@ app
     server.get('/api', api.video)
     server.use('/upload', indexroute)
     server.use(express.static('public'))
-    server.get('/api/hello', api.explore)
+    server.get('/api/video/allList', api.explore)
 
     server.get('/player/:filename', (req, res) => {
       const actualPage = '/player'
