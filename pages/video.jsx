@@ -3,23 +3,22 @@ import { Container, Col, Row } from 'reactstrap'
 import axios from 'axios'
 import VideoExploreCardList from '../container/VideoExploreCardList/VideoExploreCardList'
 
-class VideoExplorePage extends React.Component{
-
-  static async getInitialProps({req}) {
+class VideoExplorePage extends React.Component {
+  static async getInitialProps() {
     const res = await axios.get('http://localhost:3000/api/video/allList')
     return { videoList: res.data.result }
   }
 
-  render () {
-    const list = this.props.videoList
-    
+  render() {
+    const { videoList } = this.props
+
     return (
       <Layout>
         <Container>
           <Row className="mt-0 mb-2">
-            <Col xs="12" sm="12" md="12" lg="12" xl="12" className="bg-light">
+            <Col xs="12" className="bg-light">
               <h5>public video lists</h5>
-              <VideoExploreCardList videoList={list}/>
+              <VideoExploreCardList videoList={videoList} />
             </Col>
           </Row>
         </Container>

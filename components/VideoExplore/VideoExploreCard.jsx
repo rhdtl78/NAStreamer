@@ -9,18 +9,18 @@ class VideoExploreCard extends React.Component {
   }
 
   render() {
-    const title = this.props.videoName
-    const url = `/player?title=${title}`
+    const { videoName, uploader } = this.props
+    const url = `/player?title=${videoName}`
     return (
       <Col xs="6" sm="6" md="4" lg="3" xl="3">
         <Link href={url}>
           <Card>
-            <CardImg top width="100%" src='/image/capture.png'/>
+            <CardImg top width="100%" src="/image/capture.png" />
             <CardBody>
               <CardTitle>
-                <span>{this.props.videoName}</span>
+                <span>{videoName}</span>
               </CardTitle>
-              <CardText>{this.props.uploader}</CardText>
+              <CardText>{uploader}</CardText>
             </CardBody>
           </Card>
         </Link>
