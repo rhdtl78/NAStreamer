@@ -1,24 +1,32 @@
 import React from 'react'
-import { VideoExploreCard } from '../../components/VideoExplore/VideoExploreCard'
+import { Row, Col } from 'reactstrap'
+import VideoExploreCard from '../../components/VideoExplore/VideoExploreCard'
 
 class VideoExploreCardList extends React.Component {
+  static defaultProps = {
+    videoList : []
+  }
+
   constructor(props) {
     super(props)
   }
-1
+
+
   handleList = () => {
     const { videoList } = this.props
-
-    return videoList.map(item => {
-
-      console.log(item);
-      
-      return <VideoExploreCard videoName={item} uploader="uploader" />
-    })
+    
+    return videoList.map(item => (
+      <VideoExploreCard videoName={item} uploader="uploader" />
+    ))
   }
 
   render() {
-    return <div>{this.handleList()}</div>
+    const list = this.handleList()
+    return (
+      <Row>
+        {list}
+      </Row>
+    )
   }
 }
 
