@@ -1,5 +1,15 @@
 const express = require('express')
 const next = require('next')
+const mongoose = require('mongoose')
+
+var db = mongoose.connection
+db.on('error', console.error)
+db.once('open', function() {
+  // CONNECTED TO MONGODB SERVER
+  console.log('Connected to mongod server')
+})
+
+mongoose.connect('mongodb://renex.iptime.org:27017/nastreamer')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({
