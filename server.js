@@ -9,7 +9,7 @@ db.once('open', function() {
   console.log('Connected to mongod server')
 })
 
-mongoose.connect('mongodb://renex.iptime.org:27017')
+mongoose.connect('mongodb://renex.iptime.org:27017/nastreamer')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({
