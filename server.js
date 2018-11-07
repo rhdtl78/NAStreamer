@@ -12,6 +12,8 @@ db.once('open', function() {
 mongoose.connect('mongodb://renex.iptime.org:27017/nastreamer')
 
 const dev = process.env.NODE_ENV !== 'production'
+console.log(process.env.NODE_ENV);
+
 const app = next({
   dev
 })
@@ -43,7 +45,7 @@ app
 
     server.listen(port, err => {
       if (err) throw err
-      console.log('> Ready on http://localhost:3000')
+      console.log(`> Ready on http://localhost:${port}`)
     })
   })
   .catch(ex => {
