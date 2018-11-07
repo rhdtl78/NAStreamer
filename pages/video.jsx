@@ -5,7 +5,7 @@ import VideoExploreCardList from '../container/VideoExploreCardList/VideoExplore
 
 class VideoExplorePage extends React.Component {
   static async getInitialProps() {
-    const res = await axios.get('http://localhost:3000/api/video/allList')
+    const res = await axios.get('http://renex.iptime.org/api/video/allList')
     return { videoList: res.data.result }
   }
 
