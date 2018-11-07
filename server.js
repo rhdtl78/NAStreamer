@@ -22,7 +22,7 @@ app
   .prepare()
   .then(() => {
     const server = express()
-
+    const port = (!dev) ? 80 : 3000
     server.get('/api', api.video)
     server.use('/upload', indexroute)
     server.use(express.static('public'))
@@ -41,7 +41,7 @@ app
       return handle(req, res)
     })
 
-    server.listen(3000, err => {
+    server.listen(port, err => {
       if (err) throw err
       console.log('> Ready on http://localhost:3000')
     })
