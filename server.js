@@ -12,6 +12,8 @@ db.once('open', function() {
 mongoose.connect('mongodb://renex.iptime.org:27017/nastreamer')
 
 const dev = process.env.NODE_ENV !== 'production'
+console.log(process.env.NODE_ENV);
+
 const app = next({
   dev
 })
@@ -22,7 +24,7 @@ app
   .prepare()
   .then(() => {
     const server = express()
-
+    const port = (!dev) ? 80 : 3000
     server.get('/api', api.video)
     server.use('/upload', indexroute)
     server.use(express.static('public'))
@@ -33,13 +35,17 @@ app
       const queryParams = { title: req.params.filename }
       app.render(req, res, actualPage, queryParams)
     })
+    server.get('/video:category', (req, res) => {
+      const queryParams = { category : res.params.category }
+      app.render(req, res, '/video', queryParams)
+    })
     server.get('*', (req, res) => {
       return handle(req, res)
     })
 
-    server.listen(3000, err => {
+    server.listen(port, err => {
       if (err) throw err
-      console.log('> Ready on http://localhost:3000')
+      console.log(`> Ready on http://localhost:${port}`)
     })
   })
   .catch(ex => {

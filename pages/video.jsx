@@ -5,8 +5,10 @@ import VideoExploreCardList from '../container/VideoExploreCardList/VideoExplore
 
 class VideoExplorePage extends React.Component {
   static async getInitialProps() {
-    const res = await axios.get('http://localhost:3000/api/video/allList')
-    return { videoList: res.data.result }
+    const res = await axios.get('/api/video/allList')
+    console.log(res.data)
+    if (res.data.success) return { videoList: res.data.result }
+    else return { videoList: [] }
   }
 
   render() {
