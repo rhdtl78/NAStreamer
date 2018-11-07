@@ -1,9 +1,10 @@
 import Sidebar from 'react-sidebar'
+import SidebarContent from './SidebarContent'
 
 const HeadDrawer = props => {
   return (
     <Sidebar
-      sidebar={<b>Sidebar content</b>}
+      sidebar={<SidebarContent userName={props.userName}/>}
       open={props.open}
       onSetOpen={open => {
         props.handleOpen(open)
