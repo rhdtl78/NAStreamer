@@ -33,6 +33,10 @@ app
       const queryParams = { title: req.params.filename }
       app.render(req, res, actualPage, queryParams)
     })
+    server.get('/video:category', (req, res) => {
+      const queryParams = { category : res.params.category }
+      app.render(req, res, '/video', queryParams)
+    })
     server.get('*', (req, res) => {
       return handle(req, res)
     })
