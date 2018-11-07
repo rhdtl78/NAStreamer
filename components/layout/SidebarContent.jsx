@@ -14,7 +14,7 @@ const SidebarContent = props => {
       </Navbar>
       <Nav vertical>
         <NavItem className="p-2">
-          <Link href="/video">To Videos</Link>
+          <Link prefetch href="/video">To Videos</Link>
         </NavItem>
         <NavItem className="p-2">
           <Link href="#">SideLink</Link>
