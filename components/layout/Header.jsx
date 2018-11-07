@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types'
-import { Navbar, NavbarBrand } from 'reactstrap'
 import Link from 'next/link'
 import { MdReorder } from 'react-icons/md'
+import { Navbar, NavbarBrand } from 'reactstrap'
 const Header = props => {
   const handleOpen = () => {
     props.handleOpen(true)
