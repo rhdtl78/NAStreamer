@@ -3,8 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap'
 import Link from 'next/link'
 
 const SidebarContent = props => {
-  return (
-    <div>
+  return <div>
       <Navbar className="bg-primary">
         <NavbarBrand>
           <Link href="/">
@@ -14,7 +13,9 @@ const SidebarContent = props => {
       </Navbar>
       <Nav vertical>
         <NavItem className="p-2">
-          <Link prefetch href="/video?category=all">To Videos</Link>
+          <Link prefetch href="/video?category=all">
+            <a>To Videos</a>
+          </Link>
         </NavItem>
         <NavItem className="p-2">
           <Link href="#">SideLink</Link>
@@ -33,7 +34,6 @@ const SidebarContent = props => {
         </NavItem>
       </Nav>
     </div>
-  )
 }
 
 SidebarContent.defaultProps = {
