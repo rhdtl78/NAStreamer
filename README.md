@@ -15,7 +15,7 @@ NAS + Streaming Service With Node Engine And RaspberryPi
    개발 모드로 이 프로젝트를 키면 완료!<br>
 3. `trello & git-flow & pull-request`<br>
    기본적으로 개발 프로세스는 이 3 가지로 이루어집니다.<br>
-4. 소통은? `slack(예정)`<br>
+4. 소통은? `slack`<br>
    파일의 구조나 기본적인 대화를 슬랙을 만들어 할 예정입니다.
 
 <hr />
