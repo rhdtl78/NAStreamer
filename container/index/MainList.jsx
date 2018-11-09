@@ -38,9 +38,19 @@ class MainList extends React.Component {
       />
     ))
   }
-
   render() {
-    return <Row>{this.cardList()}</Row>
+    return (
+      <div className="VideoList">
+        <Row xl="3" lg="3" md="4" sm="6" xs="6">
+          {this.cardList()}
+        </Row>
+        <style jsx>{`
+          .VideoList {
+            display: flex;
+          }
+        `}</style>
+      </div>
+    )
   }
 }
 export default MainList
