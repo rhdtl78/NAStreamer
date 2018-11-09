@@ -6,14 +6,21 @@ const Header = props => {
     props.handleOpen(true)
   }
   return (
-    <Navbar color="primary">
-      <NavbarBrand>
-        <Link href="/">
-          <span style={{ color: '#fff' }}>Nastreamer</span>
-        </Link>
-      </NavbarBrand>
-      <MdReorder className="ml-auto" onClick={handleOpen} />
-    </Navbar>
+    <div>
+      <Navbar color="light" className="Header" light>
+        <NavbarBrand>
+          <Link href="/">
+            <span>Nastreamer</span>
+          </Link>
+        </NavbarBrand>
+        <MdReorder className="ml-auto" onClick={handleOpen} />
+      </Navbar>
+      <style jsx>{`
+        .Header {
+          border-bottom: 1px solid rgb(231, 232, 239);
+        }
+      `}</style>
+    </div>
   )
 }
 export default Header
