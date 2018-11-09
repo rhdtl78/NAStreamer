@@ -1,7 +1,7 @@
 import { Card } from 'reactstrap'
 
 const CardListLow = props => {
-    return(
+  return (
     <Card className="flex-col">
       <img className="VideoListCard__img" src={props.imgSrc} />
       <div className="VideoListCard__content pl-2">
@@ -24,6 +24,6 @@ const CardListLow = props => {
         }
       `}</style>
     </Card>
-    )
+  )
 }
 export default CardListLow

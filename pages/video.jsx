@@ -1,13 +1,18 @@
 import Layout from '../container/layout/Layout'
 import { Container, Col, Row } from 'reactstrap'
 import axios from 'axios'
-import VideoExploreCardList from '../container/VideoExploreCardList/VideoExploreCardList'
+import VideoCardList from '../container/VideoCardList/VideoCardList'
 
-class VideoExplorePage extends React.Component {
+class VideoPage extends React.Component {
   static async getInitialProps() {
     const res = await axios.get('/api/video/allList')
     console.log(res.data)
-    if (res.data.success) return { videoList: res.data.result }
+    if (res.data.success)
+      return {
+        videoList: res.data.result.map((item, index) => {
+          return { title: item, uploader: `uploader${index}`, thumbnail: '/image/capture.png' }
+        })
+      }
     else return { videoList: [] }
   }
 
@@ -17,16 +22,11 @@ class VideoExplorePage extends React.Component {
     return (
       <Layout>
         <Container>
-          <Row className="mt-0 mb-2">
-            <Col xs="12" className="bg-light">
-              <h5>public video lists</h5>
-              <VideoExploreCardList videoList={videoList} />
-            </Col>
-          </Row>
+          <VideoCardList expand={true} videoList={videoList} listTitle="Public Videos"/>
         </Container>
       </Layout>
     )
   }
 }
 
-export default VideoExplorePage
+export default VideoPage
