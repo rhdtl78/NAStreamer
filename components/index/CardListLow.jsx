@@ -1,29 +1,20 @@
-import { Card } from 'reactstrap'
+import { Card, Col, CardBody, CardTitle, CardImg, CardText } from 'reactstrap'
 
 const CardListLow = props => {
-    return(
-    <Card className="flex-col">
-      <img className="VideoListCard__img" src={props.imgSrc} />
-      <div className="VideoListCard__content pl-2">
-        <span>{props.videoName}</span>
-        <br />
-        <small>{props.uploader}</small>
-      </div>
-      <style jsx>{`
-        .card{
-          margin:0.2rem;
-        }
-        .VideoListCard__img {
-          width: 100%;
-          height: 130px;
-        }
-        .VideoListCard__content {
-          width: 100%;
-          padding: 1.25rem;
-          font-size: 80%;
-        }
-      `}</style>
-    </Card>
-    )
+  return (
+    <Col xs="6" sm="6" md="4" lg="3" xl="3">
+      <Card>
+        <CardImg top witdh='100%' src={props.imgSrc} />
+        <CardBody>
+          <CardTitle>
+            <span>{props.videoName}</span>
+          </CardTitle>
+          <CardText>
+            <small>{props.uploader}</small>
+          </CardText>
+        </CardBody>
+      </Card>
+    </Col>
+  )
 }
 export default CardListLow
