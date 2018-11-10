@@ -4,6 +4,7 @@ import { Container, Col, Row } from 'reactstrap'
 import 'video-react/dist/video-react.css'
 import { Player } from 'video-react'
 import VideoList from '../container/player/VideoList'
+import PlayerDiscription from '../components/player/PlayerDiscription'
 const Video = withRouter(props => (
   <Layout>
     <Container>
@@ -13,14 +14,7 @@ const Video = withRouter(props => (
             playsInline
             src={`/api/?filename=${props.router.query.title}`}
           />
-          <div
-            className="mt-3"
-            style={{
-              height: '150px',
-              border: '1px solid rgb(231, 232, 239)',
-              backgroundColor: '#fff000'
-            }}
-          />
+          <PlayerDiscription />
         </Col>
         <Col xs="12" sm="12" md="4" lg="3" xl="3">
           <VideoList />
