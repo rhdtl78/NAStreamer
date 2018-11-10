@@ -30,18 +30,19 @@ class SignUp extends React.Component {
     const name = encodeURIComponent(this.state.name)
     const email = encodeURIComponent(this.state.email)
     const password = encodeURIComponent(this.state.password)
-    let data = JSON.stringify({
-      email,
-      password,
-      name
-    })
-    axios
-      .post('/auth/signup', data, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
-      })
-      .then(data => console.log(data))
+    const formData = `name=${name}&email=${email}&password=${password}`
+
+    const Options = {
+      method: 'POST',
+      url: '/auth/signup',
+      data: formData,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      json: true
+    }
+    axios(Options)
+      .then(({ data }) => console.log(data))
       .catch(err => console.log(err.response))
   }
 
