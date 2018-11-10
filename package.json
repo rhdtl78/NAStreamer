@@ -35,7 +35,6 @@
     "react-redux": "^5.1.0",
     "react-sidebar": "^3.0.2",
     "reactstrap": "^6.5.0",
-    "redux-actions": "^2.6.3",
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
