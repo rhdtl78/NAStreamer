@@ -17,7 +17,7 @@ class VideoCardList extends React.Component {
     const { videoList, expand } = this.props
     const list = videoList.map((item, index) => (
       <VideoCard
-        title={item.title}
+        title={item.videoName}
         uploader={item.uploader}
         thumbnail={item.thumbnail}
         key={index}
