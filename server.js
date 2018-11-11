@@ -3,6 +3,7 @@ const next = require('next')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const config = require('./config')
+const session = require('express-session')
 
 require('./models').connect(
   config.dbUri,
@@ -25,6 +26,13 @@ app
     const server = express()
     const port = !dev ? 80 : 3000
     server.use(bodyParser.urlencoded({ extended: true }))
+    server.use(
+      session({
+        secret: 'nastreamer-renex',
+        resave: true,
+        saveUninitialized: false
+      })
+    ) // 세션 활성화
     server.use(passport.initialize())
     const localSignupStrategy = require('./routes/passport/local-signup')
     const localLoginStrategy = require('./routes/passport/local-login')
