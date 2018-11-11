@@ -5,12 +5,23 @@ import VideoCardList from '../container/VideoCardList/VideoCardList'
 
 class VideoPage extends React.Component {
   static async getInitialProps() {
-    const res = await axios.get('/api/video/allList')
-    console.log(res.data)
+    const baseURL =
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000'
+        : 'http://renex.iptime.org'
+
+    console.log(baseURL);
+    
+    const instance = axios.create({baseURL: baseURL})
+    const res = await instance.get('/api/video/allList')
     if (res.data.success)
       return {
         videoList: res.data.result.map((item, index) => {
-          return { title: item, uploader: `uploader${index}`, thumbnail: '/image/capture.png' }
+          return {
+            videoName: item,
+            uploader: `uploader${index}`,
+            thumbnail: '/image/capture.png'
+          }
         })
       }
     else return { videoList: [] }
@@ -22,7 +33,11 @@ class VideoPage extends React.Component {
     return (
       <Layout>
         <Container>
-          <VideoCardList expand={true} videoList={videoList} listTitle="Public Videos"/>
+          <VideoCardList
+            expand={true}
+            videoList={videoList}
+            listTitle="Public Videos"
+          />
         </Container>
       </Layout>
     )
