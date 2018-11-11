@@ -1,17 +1,20 @@
 import Head from 'next/head'
 import Header from '../../components/layout/Header'
+import Footer from '../../components/layout/Footer'
+import HeaderDrawer from '../../components/layout/HeadDrawer'
+import 'bootstrap/dist/css/bootstrap.min.css'
 class Layout extends React.Component {
   constructor(props) {
     super(props)
     this.state = { open: false }
   }
 
-  handleOpen = () => {
-    this.setState({ open: true })
+  handleOpen = open => {
+    this.setState({ open: open })
   }
 
-  handleClose = () => {
-    this.setState({ open: false })
+  handleLog = () => {
+    console.log('wow')
   }
 
   render() {
@@ -24,17 +27,15 @@ class Layout extends React.Component {
             name="viewport"
             content="width=device-width, user-scalable=no"
           />
-          <link 
-          rel="stylesheet" 
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
-          crossorigin="anonymous" />
-
         </Head>
-        <Header />
-        {children}
+        <HeaderDrawer open={open} handleOpen={this.handleOpen}>
+          <Header handleOpen={this.handleOpen} />
+          {children}
+          <Footer />
+        </HeaderDrawer>
       </div>
     )
   }
 }
+
 export default Layout

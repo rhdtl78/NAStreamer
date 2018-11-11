@@ -15,7 +15,7 @@ NAS + Streaming Service With Node Engine And RaspberryPi
    개발 모드로 이 프로젝트를 키면 완료!<br>
 3. `trello & git-flow & pull-request`<br>
    기본적으로 개발 프로세스는 이 3 가지로 이루어집니다.<br>
-4. 소통은? `slack(예정)`<br>
+4. 소통은? `slack`<br>
    파일의 구조나 기본적인 대화를 슬랙을 만들어 할 예정입니다.
 
 <hr />
@@ -36,7 +36,7 @@ NAS + Streaming Service With Node Engine And RaspberryPi
 
 1. nextjs - <a>https://nextjs.org/</a>
 2. nextjs(velopert) - <a>https://velopert.com/3293</a>
-3. materialui - <a>https://material-ui.com/</a>
+3. reactstrap - <a>https://reactstrap.github.io/</a>
 4. express - <a>https://expressjs.com/ko/</a>
 5. axios(velopert) - <a>https://velopert.com/1552</a>
 6. airbnb coding convention - <a>https://github.com/airbnb/javascript</a>
@@ -51,6 +51,9 @@ NAS + Streaming Service With Node Engine And RaspberryPi
 15. git-flow(우아한 형제들) - <a>http://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html</a>
 16. git-flow(ihoneymon) - <a>https://gist.github.com/ihoneymon/a28138ee5309c73e94f9</a>
 17. react tutorial(velopert) - <a>https://velopert.com/3676</a>
+18. bootstrap - <a>https://getbootstrap.com/</a>
+19. react-icons - <a>https://react-icons.netlify.com/#/</a>
+20. react-drawer -<a>https://github.com/balloob/react-sidebar/blob/master/README.md<a>
     <hr />
         추천 eslint+prettier<br>
         vscode setting<br>

@@ -1,36 +1,95 @@
-import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
-
-const styles = () => ({
-  root: {
-    width: '100%'
-  },
-  footer: {
-    width: '100%',
-    backgroundColor: '#E0E0E0',
-    paddingTop: '2rem',
-    paddingBottom: '2rem'
-  }
-})
-
+import { ICON_NAME } from 'react-icons/fa'
 const Footer = props => {
-  const { classes } = props
   return (
-    <footer className={classes.footer}>
-      <Grid container direction="column" justify="center" alignItems="center">
-        <h3>Powered by ReNex </h3>
-        <p>
-          푸터 영역 모 알아서 집어넣으면 될듯 대충 깃허브 아이콘 넣고 그러지머
-        </p>
-        <small>2018.10.26</small>
-      </Grid>
+    <footer className="page-footer font-small">
+      <span style={{ color: '' }} />
+      <div className="container-fluid text-center text-md-left">
+        <div className="row">
+          <div className="col-md-3 mt-md-0 mt-3">
+            <div className="view overlay z-depth-1-half lg-hidde ">
+              <img
+                src="../image/renex_main_rogo.jpg"
+                className="img-thumbnail"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="col-md-3 mb-md-0 mb-3">
+            <h5 className="text"> Developer Member</h5>
+
+            <ul className="list-unstyled">
+              <li>
+                <a>Kwon Hyuk Jin</a>
+              </li>
+              <li>
+                <a>Kong Jung Hoon</a>
+              </li>
+              <li>
+                <a>Lee Jung Hoon</a>
+              </li>
+              <li>
+                <a>Lee Kyung Min</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-md-3 mb-md-0 mb-3">
+            <h5 className="text">Developer Git</h5>
+
+            <ul className="list-unstyled">
+              <li>
+                <a href="https://github.com/ponyong">ponyong</a>
+              </li>
+              <li>
+                <a href="https://github.com/rhdtl78">rhdtl78</a>
+              </li>
+              <li>
+                <a href="https://github.com/azxca1731">azxca1731</a>
+              </li>
+              <li>
+                <a href="https://github.com/kmlee95">kmlee95</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-md-3 mb-md-0 mb-3">
+            <h5 className="text">Developer Email</h5>
+
+            <ul className="list-unstyled">
+              <li>
+                <a>ponyong@naver.com</a>
+              </li>
+              <li>
+                <a>rhdtl78@gmail.com</a>
+              </li>
+              <li>
+                <a>azxca1731@gmail.com</a>
+              </li>
+              <li>
+                <a>kmlee9598@gamil.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-copyright text-center">
+        © 2018 Copyright:
+        <a> ReNex Team</a>
+      </div>
+
+      <style jsx>{`
+        .page-footer {
+          border-top: 1px solid rgb(231, 232, 239);
+        }
+        .footer-copyright {
+          border-top: 1px solid rgb(231, 232, 239);
+          background-color: #888888;
+        }
+      `}</style>
     </footer>
   )
 }
-
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(Footer)
+export default Footer
