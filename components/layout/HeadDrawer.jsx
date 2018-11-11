@@ -11,7 +11,7 @@ const HeadDrawer = props => {
       }}
       styles={{ sidebar: { background: 'white' } }}
       pullRight
-    />
+    >{props.children}</Sidebar>
   )
 }
 
