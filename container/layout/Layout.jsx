@@ -28,10 +28,11 @@ class Layout extends React.Component {
             content="width=device-width, user-scalable=no"
           />
         </Head>
-        <HeaderDrawer open={open} handleOpen={this.handleOpen} />
-        <Header handleOpen={this.handleOpen} />
-        {children}
-        <Footer />
+        <HeaderDrawer open={open} handleOpen={this.handleOpen}>
+          <Header handleOpen={this.handleOpen} />
+          {children}
+          <Footer />
+        </HeaderDrawer>
       </div>
     )
   }
