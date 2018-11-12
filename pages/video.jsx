@@ -10,9 +10,9 @@ class VideoPage extends React.Component {
         ? 'http://localhost:3000'
         : 'http://renex.iptime.org'
 
-    console.log(baseURL);
-    
-    const instance = axios.create({baseURL: baseURL})
+    console.log(baseURL)
+
+    const instance = axios.create({ baseURL: baseURL })
     const res = await instance.get('/api/video/allList')
     if (res.data.success)
       return {
