@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const videoSchema = new mongoose.Schema({
-  name: { type: String, required: true, lowercase: true },
+  title: { type: String, required: true, lowercase: true },
   uploader: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   uploadDate: { type: Date, default: Date.now },
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
