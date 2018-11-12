@@ -3,6 +3,7 @@ const next = require('next')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const config = require('./config')
+const authRoutes = require('./routes/auth')
 
 require('./models').connect(
   config.dbUri,
@@ -19,6 +20,8 @@ const app = next({
 const handle = app.getRequestHandler()
 const api = require('./routes/api.js')
 const indexroute = require('./routes/index')
+const localSignupStrategy = require('./routes/passport/local-signup')
+const localLoginStrategy = require('./routes/passport/local-login')
 app
   .prepare()
   .then(() => {
@@ -26,17 +29,15 @@ app
     const port = !dev ? 80 : 3000
     server.use(bodyParser.urlencoded({ extended: true }))
     server.use(passport.initialize())
-    const localSignupStrategy = require('./routes/passport/local-signup')
-    const localLoginStrategy = require('./routes/passport/local-login')
+
     passport.use('local-signup', localSignupStrategy)
     passport.use('local-login', localLoginStrategy)
-    const authRoutes = require('./routes/auth')
+
     server.use('/auth', authRoutes)
 
-    server.get('/api', api.video)
+    server.use('/api', api)
     server.use('/upload', indexroute)
     server.use(express.static('public'))
-    server.get('/api/video/allList', api.explore)
 
     server.get('/player/:filename', (req, res) => {
       const actualPage = '/player'
