@@ -1,4 +1,4 @@
 {
-  "dbUri": "mongodb://renex.iptime.org:27017/nastreamer",
+  "dbUri": "@renex.iptime.org:27017/nastreamer",
   "jwtSecret": "a secret phrase!!"
 }
