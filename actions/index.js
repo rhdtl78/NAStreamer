@@ -8,7 +8,8 @@ export function uploadVideoFile(file) {
 
   const request = axios.post('/upload', formData, {
     headers: {
-      'Content-Type': 'multipart/form-data'
+      'Content-Type': 'multipart/form-data',
+      Authorization: `bearer ${localStorage.getItem('token')}`
     }
   })
 
