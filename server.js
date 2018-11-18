@@ -34,9 +34,9 @@ app
     server.use('/upload', indexroute)
     server.use(express.static('public'))
 
-    server.get('/player/:filename', (req, res) => {
+    server.get('/player/:uid', (req, res) => {
       const actualPage = '/player'
-      const queryParams = { title: req.params.filename }
+      const queryParams = { uid: req.params.uid }
       app.render(req, res, actualPage, queryParams)
     })
     server.get('/video:category', (req, res) => {

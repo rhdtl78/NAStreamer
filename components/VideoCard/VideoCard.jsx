@@ -9,8 +9,8 @@ class VideoCard extends React.Component {
   }
 
   render() {
-    const { title, uploader, thumbnail } = this.props
-    const url = `/player?title=${title}`
+    const { title, uploader, thumbnail, uid } = this.props
+    const url = uid ? '/' : `/player/${uid}`
     return (
       <Col xs="6" sm="6" md="4" lg="3" xl="3">
         <Link href={url}>

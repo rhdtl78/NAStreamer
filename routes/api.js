@@ -2,6 +2,7 @@ const fs = require('fs')
 const express = require('express')
 const router = express.Router()
 const authCheckMiddleware = require('./middleware/auth-check')
+const Video = require('../models/video')
 
 router.post('/', async (req, res) => {
   const path = `explore/public/${req.query.filename}`
@@ -34,14 +35,16 @@ router.post('/', async (req, res) => {
 router.get('/video/allList', async (req, res) => {
   console.log(req.user)
   let result = []
-  fs.readdir('./explore/public', function(err, file) {
+  result = await Video.find()
+  res.json({ result: result, success: true })
+  /*fs.readdir('./explore/public', function(err, file) {
     if (err) res.json({ result: [], success: false })
     file.forEach(file => {
       var ext = file.substring(file.length - 3, file.length)
       if (ext === 'mp4' || ext === 'avi' || ext === 'mkv') result.push(file)
     })
     res.json({ result: result, success: true })
-  })
+  })*/
 })
 router.use('/example', authCheckMiddleware)
 router.get('/example', async (req, res) => {
