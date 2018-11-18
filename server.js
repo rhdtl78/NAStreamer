@@ -5,12 +5,7 @@ const passport = require('passport')
 const config = require('./config')
 const authRoutes = require('./routes/auth')
 
-require('./models').connect(
-  config.dbUri,
-  {
-    useMongoClient: true
-  }
-)
+require('./models').connect(config.dbUri)
 
 const dev = process.env.NODE_ENV !== 'production'
 
