@@ -16,11 +16,12 @@ class VideoPage extends React.Component {
     const res = await instance.get('/api/video/allList')
     if (res.data.success)
       return {
-        videoList: res.data.result.map((item, index) => {
+        videoList: res.data.result.map(({ title, _id, uploader }, index) => {
           return {
-            videoName: item,
-            uploader: `uploader${index}`,
-            thumbnail: '/image/capture.png'
+            videoName: title,
+            uploader: uploader,
+            thumbnail: '/image/capture.png',
+            uid: _id
           }
         })
       }
