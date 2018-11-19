@@ -15,14 +15,17 @@ class VideoCardList extends React.Component {
 
   handleList = () => {
     const { videoList, expand } = this.props
-    const list = videoList.map(({ videoName, uploader, thumbnail }, index) => (
-      <VideoCard
-        title={videoName}
-        uploader={uploader.name}
-        thumbnail={thumbnail}
-        key={index}
-      />
-    ))
+    const list = videoList.map(
+      ({ videoName, uploader, thumbnail, uid }, index) => (
+        <VideoCard
+          title={videoName}
+          uploader={uploader.name}
+          thumbnail={thumbnail}
+          uid={uid}
+          key={index}
+        />
+      )
+    )
 
     if (!expand && videoList.length > 4) list.pop()
 

@@ -4,8 +4,9 @@ const router = express.Router()
 const authCheckMiddleware = require('./middleware/auth-check')
 const Video = require('../models/video')
 
-router.post('/', async (req, res) => {
-  const path = `explore/public/${req.query.filename}`
+router.get('/', async (req, res) => {
+  const video = await Video.findOne({ _id: req.query.uid })
+  const path = video.src
   const stat = fs.statSync(path)
   const fileSize = stat.size
   const range = req.headers.range
