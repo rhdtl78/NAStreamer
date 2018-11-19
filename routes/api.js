@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 router.get('/video/allList', async (req, res) => {
   console.log(req.user)
   let result = []
-  result = await Video.find()
+  result = await Video.find().populate('uploader', 'name')
   res.json({ result: result, success: true })
   /*fs.readdir('./explore/public', function(err, file) {
     if (err) res.json({ result: [], success: false })
