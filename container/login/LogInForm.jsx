@@ -47,15 +47,13 @@ class LogInForm extends React.Component {
         Router.push('/')
       })
       .catch(({ response }) => {
-        this.setState({ err: response.data.errors, send: true })
+        console.log(response.data)
+        this.setState({ err: response.data.message, send: true })
       })
   }
 
   writeErr = err => {
-    const errMessage = []
-    if (err.email) errMessage.push(<ErrMessage message={err.email} />)
-    if (err.password) errMessage.push(<ErrMessage message={err.password} />)
-    return errMessage
+    return <ErrMessage message={err} />
   }
 
   render() {
@@ -79,7 +77,11 @@ class LogInForm extends React.Component {
             onChange={this.handlePassword}
           />
         </FormGroup>
-        {this.state.send && this.state.err ? this.writeErr(this.state.err) : ''}
+        <div className="text-center p-3">
+          {this.state.send && this.state.err
+            ? this.writeErr(this.state.err)
+            : ''}
+        </div>
         <Button
           color="primary"
           block
