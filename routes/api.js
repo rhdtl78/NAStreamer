@@ -34,12 +34,16 @@ router.get('/', async (req, res) => {
   }
 })
 router.post('/modifyVideoMeta', async (req, res) => {
-  const { name, category, hashTag } = req.body
-  await Video.findOneAndUpdate(
-    { _id: req.query.uid },
-    { name, category, hashTag }
+  const { name, category, hashtag } = req.body
+  await Video.findByIdAndUpdate(
+    req.query.uid,
+    {
+      $set: { title: name, category },
+      $push: { hashtag: hashtag }
+    },
+    { new: true }
   )
-  res.json({ message: 'success' })
+  res.json({ message: true })
 })
 router.get('/video/allList', async (req, res) => {
   console.log(req.user)
