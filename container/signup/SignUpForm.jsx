@@ -33,21 +33,10 @@ class SignUpForm extends React.Component {
   }
 
   onSignIn = () => {
-    const name = encodeURIComponent(this.state.name)
-    const email = encodeURIComponent(this.state.email)
-    const password = encodeURIComponent(this.state.password)
-    const formData = `name=${name}&email=${email}&password=${password}`
+    const { name, email, password } = this.state
 
-    const Options = {
-      method: 'POST',
-      url: '/auth/signup',
-      data: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      json: true
-    }
-    axios(Options)
+    axios
+      .post('/auth/signup', { name, email, password })
       .then(({ data }) => {
         this.setState({ data: data, send: true })
         Router.push('/login')

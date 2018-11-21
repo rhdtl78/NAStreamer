@@ -28,20 +28,9 @@ class LogInForm extends React.Component {
   }
 
   onLogIn = () => {
-    const email = encodeURIComponent(this.state.email)
-    const password = encodeURIComponent(this.state.password)
-    const formData = `email=${email}&password=${password}`
-
-    const Options = {
-      method: 'POST',
-      url: '/auth/login',
-      data: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      json: true
-    }
-    axios(Options)
+    const { email, password } = this.state
+    axios
+      .post('/auth/login', { email, password })
       .then(({ data }) => {
         localStorage.setItem('token', data.token)
         Router.push('/')

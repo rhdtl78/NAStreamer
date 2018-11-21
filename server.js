@@ -22,7 +22,7 @@ app
   .then(() => {
     const server = express()
     const port = !dev ? 80 : 3000
-    server.use(bodyParser.urlencoded({ extended: true }))
+    server.use(bodyParser.json())
     server.use(passport.initialize())
 
     passport.use('local-signup', localSignupStrategy)
