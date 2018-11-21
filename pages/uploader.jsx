@@ -1,16 +1,20 @@
 import Dropzone from 'react-dropzone'
 import ReactLoading from 'react-loading'
-import { Container } from 'reactstrap'
+import { Container, Button } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { uploadVideoFile } from '../actions'
 
 import Layout from '../container/layout/Layout'
+import SettingModal from '../container/uploader/SettingModal'
 
 class Uploader extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isLoaded: true }
+    this.state = {
+      isLoaded: true,
+      isSettingModalUp: false
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -23,7 +27,14 @@ class Uploader extends React.Component {
     acceptedFiles.forEach(file => this.props.uploadVideoFile(file))
   }
 
+  handleSettingModal = () => {
+    this.setState({
+      isSettingModalUp: !this.state.isSettingModalUp
+    })
+  }
+
   render() {
+    const { isSettingModalUp } = this.state
     return (
       <Layout>
         <Container>
@@ -37,6 +48,12 @@ class Uploader extends React.Component {
               width={'20%'}
             />
           )}
+          <Button onClick={this.handleSettingModal}>모달 일단 뛰우기</Button>
+          <SettingModal
+            videoUid="5bf2cf887e79fe0fba78809e"
+            handleSettingModal={this.handleSettingModal}
+            isSettingModalUp={isSettingModalUp}
+          />
         </Container>
       </Layout>
     )

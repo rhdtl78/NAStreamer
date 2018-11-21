@@ -33,6 +33,18 @@ router.get('/', async (req, res) => {
     fs.createReadStream(path).pipe(res)
   }
 })
+router.post('/modifyVideoMeta', async (req, res) => {
+  const { name, category, hashtag } = req.body
+  await Video.findByIdAndUpdate(
+    req.query.uid,
+    {
+      $set: { title: name, category },
+      $push: { hashtag: hashtag }
+    },
+    { new: true }
+  )
+  res.json({ message: true })
+})
 router.get('/video/allList', async (req, res) => {
   console.log(req.user)
   let result = []
