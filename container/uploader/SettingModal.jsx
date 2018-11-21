@@ -13,19 +13,16 @@ class SettingModal extends React.Component {
     super(props)
     this.state = {
       name: '',
-      hashTag: '',
+      hashtag: '',
       category: ''
     }
   }
 
   modifyVideoMetaData = () => {
-    const { name, hashTag, category } = this.state
+    const { name, hashtag, category } = this.state
     const { videoUid } = this.props
     axios
-      .post(
-        `api/modifyVideoMeta?uid=${videoUid}`,
-        `name=${name}&hashtag=${hashTag}&category=${category}`
-      )
+      .post(`api/modifyVideoMeta?uid=${videoUid}`, { name, hashtag, category })
       .then(({ data }) => {
         console.log(data)
         this.props.handleSettingModal()
@@ -49,7 +46,7 @@ class SettingModal extends React.Component {
 
   handleHashTag = event => {
     this.setState({
-      hashTag: event.target.value
+      hashtag: event.target.value
     })
   }
 
