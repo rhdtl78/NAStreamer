@@ -58,7 +58,8 @@ NAS + Streaming Service With Node Engine And RaspberryPi
     <hr />
         추천 eslint+prettier<br>
         vscode setting<br>
-        <code>{
+        <code>
+         {
             "editor.formatOnSave": true,
             "javascript.format.enable": false,
             "prettier.eslintIntegration": true
