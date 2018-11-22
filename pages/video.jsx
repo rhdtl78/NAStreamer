@@ -1,5 +1,5 @@
 import Layout from '../container/layout/Layout'
-import { Container, Col, Row } from 'reactstrap'
+import { Container } from 'reactstrap'
 import axios from 'axios'
 import VideoCardList from '../container/VideoCardList/VideoCardList'
 

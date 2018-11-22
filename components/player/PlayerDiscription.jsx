@@ -6,7 +6,7 @@ const HashTag = props => (
 )
 
 const generateHash = list => {
-  return list.map(({ title, index }) => <HashTag title={title} key={index} />)
+  return list.map(({ title }) => <HashTag title={title} key={title} />)
 }
 
 const PlayerDiscription = ({ title, uploader, hashList, viewCount }) => {
