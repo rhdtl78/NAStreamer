@@ -49,7 +49,7 @@ class Video extends React.Component {
                 title={data.title}
                 uploader={data.uploader.name}
                 hashList={data.hashtag}
-                viewCount={1}
+                viewCount={data.viewCount}
               />
             </Col>
             <Col xs="12" sm="12" md="4" lg="3" xl="3">

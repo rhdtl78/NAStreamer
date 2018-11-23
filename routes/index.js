@@ -19,6 +19,7 @@ router.post('/', upload.single('avatar'), function(req, res) {
   video.title = req.file.originalname
   video.uploader = req.user._id
   video.src = req.file.path
+  video.viewCount = 0
   video.save()
   res.json({ success: true, filename: req.file.originalname })
 })

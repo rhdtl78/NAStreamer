@@ -50,6 +50,8 @@ router.get('/getvideometa/:uid', async (req, res) => {
     'uploader',
     'name'
   )
+  video.viewCount += 1
+  video.save()
   res.json(video)
 })
 router.get('/video/allList', async (req, res) => {
