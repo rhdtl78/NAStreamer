@@ -5,6 +5,8 @@ const videoSchema = new mongoose.Schema({
   uploader: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   uploadDate: { type: Date, default: Date.now },
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  category: String,
+  viewCount: Number,
   src: { type: String },
   hashtag: [String],
   relativeVideo: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Video' }],
