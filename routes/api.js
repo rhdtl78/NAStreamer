@@ -47,12 +47,17 @@ router.post('/modifyVideoMeta', async (req, res) => {
   res.json({ message: true })
 })
 router.get('/getvideometa/:uid', async (req, res) => {
-  const video = await Video.findOne({ _id: req.params.uid }).populate(
-    'uploader',
-    'name'
-  )
-  video.viewCount += 1
-  video.save()
+  let video = {}
+  try {
+    video = await Video.findOne({ _id: req.params.uid }).populate(
+      'uploader',
+      'name'
+    )
+    video.viewCount += 1
+    video.save()
+  } catch (err) {
+    console.log(err)
+  }
   res.json(video)
 })
 router.get('/video/allList', async (req, res) => {
