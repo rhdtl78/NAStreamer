@@ -1,14 +1,23 @@
-import Layout from '../container/layout/Layout'
 import { withRouter } from 'next/router'
 import { Container, Col, Row } from 'reactstrap'
 import axios from 'axios'
 import 'video-react/dist/video-react.css'
+import socketIOClient from 'socket.io-client'
 import { Player } from 'video-react'
+import 'video-react/dist/video-react.css'
+
+import Layout from '../container/layout/Layout'
 import VideoList from '../container/player/VideoList'
 import PlayerDiscription from '../components/player/PlayerDiscription'
-class Video extends React.Component {
-  static async getInitialProps({ req }) {
-    return { uid: req.params.uid }
+
+
+class VideoPlayer extends React.Component {
+  static async getInitialProps() {
+    const baseURL =
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000'
+        : 'http://renex.iptime.org'
+    return { baseURL }
   }
 
   constructor(props) {
@@ -21,6 +30,10 @@ class Video extends React.Component {
         viewCount: 1
       }
     }
+    const socket = socketIOClient(props.baseURL)
+    socket.on('hello', hello => {
+      console.log(hello)
+    })
   }
 
   componentDidMount() {
@@ -62,4 +75,4 @@ class Video extends React.Component {
   }
 }
 
-export default withRouter(Video)
+export default withRouter(VideoPlayer)

@@ -1,4 +1,0 @@
-{
-  "dbUri": "mongodb://nastreamer:renexrox77@ds245240.mlab.com:45240/nastreamer",
-  "jwtSecret": "a secret phrase!!"
-}

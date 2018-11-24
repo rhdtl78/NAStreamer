@@ -17,23 +17,36 @@ const api = require('./routes/api.js')
 const indexroute = require('./routes/index')
 const localSignupStrategy = require('./routes/passport/local-signup')
 const localLoginStrategy = require('./routes/passport/local-login')
+
+const server = express()
+const port = !dev ? 80 : 3000
+
+server.use(bodyParser.json())
+server.use(passport.initialize())
+
+passport.use('local-signup', localSignupStrategy)
+passport.use('local-login', localLoginStrategy)
+
+server.use('/auth', authRoutes)
+
+server.use('/api', api)
+server.use('/upload', indexroute)
+server.use(express.static('public'))
+
+const httpServer = require('http').Server(server)
+const io = require('socket.io')(httpServer)
+
+io.on('connection', socket => {
+  console.log('User connected')
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
+  })
+})
+
 app
   .prepare()
   .then(() => {
-    const server = express()
-    const port = !dev ? 80 : 3000
-    server.use(bodyParser.json())
-    server.use(passport.initialize())
-
-    passport.use('local-signup', localSignupStrategy)
-    passport.use('local-login', localLoginStrategy)
-
-    server.use('/auth', authRoutes)
-
-    server.use('/api', api)
-    server.use('/upload', indexroute)
-    server.use(express.static('public'))
-
     server.get('/player/:uid', (req, res) => {
       const actualPage = '/player'
       const queryParams = { uid: req.params.uid }
@@ -48,7 +61,7 @@ app
       return handle(req, res)
     })
 
-    server.listen(port, err => {
+    httpServer.listen(port, err => {
       if (err) throw err
       console.log(`> Ready on http://localhost:${port}`)
     })
