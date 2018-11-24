@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const authCheckMiddleware = require('./middleware/auth-check')
 const Video = require('../models/video')
+const UserVideo = require('../models/user_video')
 
 router.get('/', async (req, res) => {
   const video = await Video.findOne({ _id: req.query.uid })
@@ -66,6 +67,29 @@ router.get('/video/allList', async (req, res) => {
     })
     res.json({ result: result, success: true })
   })*/
+})
+router.use('/getvideo', authCheckMiddleware)
+router.get('/getvideo/:uid', async (req, res) => {
+  const result = {}
+  if (req.user) {
+    let userVideo
+    userVideo = await UserVideo.findOne({
+      user: req.user._id,
+      video: req.params.uid
+    })
+    if (!userVideo) {
+      userVideo = new UserVideo()
+      userVideo.user = req.user._id
+      userVideo.video = req.params.uid
+      await userVideo.save()
+    }
+    result.userVideo = userVideo
+    result.success = true
+  } else {
+    result.success = false
+    result.userVideo = {}
+  }
+  res.json(result)
 })
 router.use('/example', authCheckMiddleware)
 router.get('/example', async (req, res) => {
