@@ -3,4 +3,4 @@ node_modules/
 .vscode/
 yarn-error.log
 explore/*
-config/
+config/index.json
