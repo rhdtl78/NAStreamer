@@ -73,8 +73,8 @@ router.get('/video/allList', async (req, res) => {
     res.json({ result: result, success: true })
   })*/
 })
-router.use('/getvideo', authCheckMiddleware)
-router.get('/getvideo/:uid', async (req, res) => {
+router.use('/getVideoProgress', authCheckMiddleware)
+router.get('/getVideoProgress/:uid', async (req, res) => {
   const result = {}
   if (req.user) {
     let userVideo
@@ -95,6 +95,20 @@ router.get('/getvideo/:uid', async (req, res) => {
     result.userVideo = {}
   }
   res.json(result)
+})
+router.use('/saveVideoProgress', authCheckMiddleware)
+router.post('/saveVideoProgress/:uid', async (req, res) => {
+  if (req.user) {
+    let userVideo
+    userVideo = await UserVideo.findById(req.params.uid)
+    if (!userVideo) {
+      // TODO 에러처리
+    }
+    userVideo.time = req.body.currentTime
+    userVideo.save()
+  } else {
+    // TODO: 예외처리
+  }
 })
 router.use('/example', authCheckMiddleware)
 router.get('/example', async (req, res) => {

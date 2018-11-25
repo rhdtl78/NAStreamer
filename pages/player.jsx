@@ -1,15 +1,11 @@
 import { withRouter } from 'next/router'
 import { Container, Col, Row } from 'reactstrap'
 import axios from 'axios'
-import 'video-react/dist/video-react.css'
-import socketIOClient from 'socket.io-client'
-import { Player } from 'video-react'
-import 'video-react/dist/video-react.css'
 
+import MyVideoPlayer from '../container/player/MyVideoPlayer'
 import Layout from '../container/layout/Layout'
 import VideoList from '../container/player/VideoList'
 import PlayerDiscription from '../components/player/PlayerDiscription'
-
 
 class VideoPlayer extends React.Component {
   static async getInitialProps() {
@@ -30,21 +26,16 @@ class VideoPlayer extends React.Component {
         viewCount: 1
       }
     }
-    const socket = socketIOClient(props.baseURL)
-    socket.on('hello', hello => {
-      console.log(hello)
-    })
   }
 
   componentDidMount() {
-    const mock = {
-      title: '신서유기 6 1화',
-      uploader: { name: 'Junghun' },
-      hashtag: [{ title: '꿀잼보장' }, { title: '신서유기' }],
-      viewCount: 1
-    }
+    const { uid } = this.props.router.query
+    this.getVideoMeta(uid)
+  }
+
+  getVideoMeta = uid => {
     axios
-      .get(`/api/getvideometa/${this.props.uid}`)
+      .get(`/api/getvideometa/${uid}`)
       .then(({ data }) => this.setState({ data }))
       .catch(() => this.setState({ data: mock }))
   }
@@ -57,7 +48,7 @@ class VideoPlayer extends React.Component {
         <Container>
           <Row className="mt-0 mt-md-4 mb-0 mb-md-4">
             <Col xs="12" sm="12" md="8" lg="9" xl="9">
-              <Player playsInline src={`/api/?uid=${router.query.uid}`} />
+              <MyVideoPlayer url={this.props.baseURL} uid={router.query.uid} />
               <PlayerDiscription
                 title={data.title}
                 uploader={data.uploader.name}
