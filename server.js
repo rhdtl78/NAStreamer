@@ -33,16 +33,27 @@ server.use('/api', api)
 server.use('/upload', indexroute)
 server.use(express.static('public'))
 
+/* 
+* Socket IO start
+* 나중에 소켓IO 파일을 만들어서 관리하는게 더 좋을 듯
+*/
 const httpServer = require('http').Server(server)
 const io = require('socket.io')(httpServer)
 
 io.on('connection', socket => {
-  console.log('User connected')
+  socket.on('playerTimeCheker', data => {
+    //TODO:나중에 여기에 타임아웃이 나면 디비로 정보를 전달
+    console.log(data)
+  })
 
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
+  socket.on('disconnect', data => {
+    console.log(`Connection diconnect : ${data}`)
   })
 })
+/* 
+* Socket IO End
+*
+*/
 
 app
   .prepare()
