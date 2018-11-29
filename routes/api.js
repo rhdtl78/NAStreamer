@@ -104,6 +104,7 @@ router.post('/saveVideoProgress/:uid', async (req, res) => {
     if (!userVideo) {
       // TODO 에러처리
     }
+    console.log(req.body.currentTime)
     userVideo.time = req.body.currentTime
     userVideo.save()
   } else {

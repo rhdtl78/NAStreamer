@@ -7,24 +7,27 @@ class MyVideoPlayer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentTime: 0
+      currentTime: 0,
+      isActive: false
     }
   }
 
   componentDidMount() {
     this.registerUserVideo(this.props.uid)
-  }
-
-  componentWillUnmount() {
-    if (this.Interval) clearInterval(this.Interval)
-    this.saveVideoProgress()
+    this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this))
   }
 
   handleStateChange(state, prevState) {
     // copy player state to this component's state
-    this.setState({
-      player: state
-    })
+    if (
+      Math.floor(state.currentTime) !== Math.floor(prevState.currentTime) ||
+      state.paused !== prevState.paused
+    ) {
+      this.setState({
+        paused: state.paused,
+        currentTime: state.currentTime
+      })
+    }
   }
 
   registerUserVideo = uid => {
@@ -35,14 +38,13 @@ class MyVideoPlayer extends React.Component {
           headers: { Authorization: `bearer ${jwt}` }
         })
         .then(({ data }) => {
-          if (data.success && data.userVideo.time)
-            this.activePlayerSocket(data.userVideo._id, data.userVideo.time)
+          if (data.success) this.activePlayerSocket(data.userVideo._id)
           if (data.userVideo.time !== 0) this.replayVideo(data.userVideo.time)
         })
     }
   }
 
-  activePlayerSocket = (uid, time) => {
+  activePlayerSocket = uid => {
     this.setState({
       userVideoUid: uid
     })
@@ -57,15 +59,14 @@ class MyVideoPlayer extends React.Component {
     */
   }
 
-  saveVideoProgress = () => {
-    const { player } = this.refs.player.getState()
+  saveVideoProgress = currentTime => {
     const jwt = localStorage.getItem('token')
     if (jwt) {
       axios
         .post(
           `/api/saveVideoProgress/${this.state.userVideoUid}`,
           {
-            currentTime: player.currentTime
+            currentTime
           },
           {
             headers: { Authorization: `bearer ${jwt}` }
@@ -84,9 +85,14 @@ class MyVideoPlayer extends React.Component {
 
   render() {
     const { uid } = this.props
+    const { paused, userVideoUid, currentTime } = this.state
     return (
       <Player ref="player" playsInline src={`/api/?uid=${uid}`}>
         <BigPlayButton position="center" />
+        {userVideoUid &&
+          paused === false &&
+          Math.floor(currentTime) % 30 === 0 &&
+          this.saveVideoProgress(currentTime)}
       </Player>
     )
   }
