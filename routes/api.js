@@ -110,6 +110,11 @@ router.post('/saveVideoProgress/:uid', async (req, res) => {
     // TODO: 예외처리
   }
 })
+router.use('/getUserVideos', authCheckMiddleware)
+router.get('/getUserVideos/', async (req, res) => {
+  const result = await UserVideo.find({ user: req.user._id })
+  res.json(result)
+})
 router.use('/example', authCheckMiddleware)
 router.get('/example', async (req, res) => {
   res.send(`Hello! ${req.user}`)
