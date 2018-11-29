@@ -55,7 +55,8 @@ NAS + Streaming Service With Node Engine And RaspberryPi
 19. react-icons - <a>https://react-icons.netlify.com/#/</a>
 20. react-drawer - <a>https://github.com/balloob/react-sidebar/blob/master/README.md</a>
 21. JWT(JSON Web Token) - <a>https://velopert.com/2389</a>
-22. redux-promise -<a>https://www.npmjs.com/package/redux-promise</a>
+22. redux-promise - <a>https://www.npmjs.com/package/redux-promise</a>
+23. redux-saga - <a>https://mskims.github.io/redux-saga-in-korean/</a>
     <hr />
         추천 eslint+prettier<br>
         vscode setting<br>
