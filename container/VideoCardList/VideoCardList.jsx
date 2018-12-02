@@ -36,11 +36,16 @@ class VideoCardList extends React.Component {
     const { listTitle } = this.props
 
     return (
-      <Row className="mb-2 mt-2 bg-light p-3">
+      <Row className="mb-2 mt-2 pt-3 Cardname">
         <Col xs="12">
           <h5>{listTitle}</h5>
         </Col>
         {this.handleList()}
+        <style jsx>{`
+          .Cardname {
+        
+          }
+        `}</style>
       </Row>
     )
   }

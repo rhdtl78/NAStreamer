@@ -16,7 +16,7 @@ const Footer = props => {
             </div>
           </div>
 
-          <div className="col-md-3 mb-md-0 mb-3">
+          <div className="col-md-3 mb-3 mb-md-0 ">
             <h5 className="text"> Developer Member</h5>
 
             <ul className="list-unstyled">

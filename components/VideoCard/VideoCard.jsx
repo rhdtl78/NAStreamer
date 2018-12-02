@@ -12,7 +12,7 @@ class VideoCard extends React.Component {
     const { title, uploader, thumbnail, uid } = this.props
     const url = uid ? `/player/${uid}` : `/`
     return (
-      <Col xs="6" sm="6" md="4" lg="3" xl="3">
+      <Col xs="6" sm="6" md="4" lg="3" xl="3" className="mb-3 mb-lg-0">
         <Link href={url}>
           <Card>
             <CardImg top width="100%" src={thumbnail} />
