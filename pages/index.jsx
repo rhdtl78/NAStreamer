@@ -2,7 +2,7 @@ import Layout from '../container/layout/Layout'
 import { Container, Col, Row } from 'reactstrap'
 import 'video-react/dist/video-react.css'
 import VideoCardList from '../container/VideoCardList/VideoCardList'
-import MainList from '../container/index/MainList'
+
 
 const Index = () => {
   const videoList = [
@@ -35,9 +35,6 @@ const Index = () => {
   return (
     <Layout>
       <Container>
-        <h5>최근 업로드 영상</h5>
-        <br/>
-        <MainList />
         <VideoCardList
           expand={false}
           listTitle="최근 업로드 영상"
