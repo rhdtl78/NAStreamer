@@ -14,44 +14,50 @@ const SidebarContent = props => {
       <Navbar className="bg-light">
         <NavbarBrand>
           <Link href="/">
-            <span className="sidebar_text">NAStreamer</span>
+            <div className="sidebar_maintext">
+              <span> NAStreamer</span>
+            </div>
           </Link>
         </NavbarBrand>
       </Navbar>
       <Nav vertical>
-        <NavItem className="login p-2">
+        <NavItem className="login p-3">
           <Link href="/login">
             <a className="sidebar_text">
-              <span>
-                <FaKey /> Login
+              <span className="sidebar_icon">
+                <FaKey />
               </span>
+              <span>Login</span>
             </a>
           </Link>
         </NavItem>
-        <NavItem className="sign_up p-2">
-          <Link prefetch href="/signup p-2">
+        <NavItem className="sign_up p-3">
+          <Link prefetch href="/signup">
             <a className="sidebar_text">
-              <span>
-                <FaCreativeCommonsBy /> Sign Up
+              <span className="sidebar_icon">
+                <FaCreativeCommonsBy />
               </span>
+              <span>Sign Up</span>
             </a>
           </Link>
         </NavItem>
-        <NavItem className="upload p-2">
+        <NavItem className="upload p-3">
           <Link href="/uploader">
             <a className="sidebar_text">
-              <span>
-                <FaFileUpload /> Upload
+              <span className="sidebar_icon">
+                <FaFileUpload />
               </span>
+              <span>Upload</span>
             </a>
           </Link>
         </NavItem>
-        <NavItem className="video p-2">
+        <NavItem className="video p-3">
           <Link href="/video">
             <a className="sidebar_text">
-              <span>
-                <FaVideo /> Video
+              <span className="sidebar_icon">
+                <FaVideo />
               </span>
+              <span>Video</span>
             </a>
           </Link>
         </NavItem>
@@ -59,6 +65,13 @@ const SidebarContent = props => {
       <style jsx>{`
         .sidebar_text {
           color: #000000;
+          margin-left: 6px;
+        }
+        .sidebar_maintext {
+          width: 230px;
+        }
+        .sidebar_icon {
+          margin-right: 8px;
         }
       `}</style>
     </div>
