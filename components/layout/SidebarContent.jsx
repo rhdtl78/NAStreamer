@@ -8,59 +8,65 @@ import {
   FaCreativeCommonsBy
 } from 'react-icons/fa'
 
+const SidebarSet = props => (
+  <div>
+    <a className="Sidebar__text">
+      <span className="Sidebar__icon">{props.icon}</span>
+      <span>{props.name}</span>
+    </a>
+    <style jsx>{`
+      .Sidebar__text {
+        color: #000000;
+        margin-left: 6px;
+      }
+      .Sidebar__icon {
+        margin-right: 8px;
+      }
+    `}</style>
+  </div>
+)
+
 const SidebarContent = props => {
   return (
     <div>
       <Navbar className="bg-light">
         <NavbarBrand>
           <Link href="/">
-            <span className="sidebar_text">NAStreamer</span>
+            <div className="Sidebar__maintext">
+              <span> NAStreamer</span>
+            </div>
           </Link>
         </NavbarBrand>
       </Navbar>
       <Nav vertical>
-        <NavItem className="login p-2">
+        <NavItem className="login p-3">
           <Link href="/login">
-            <a className="sidebar_text">
-              <span>
-                <FaKey /> Login
-              </span>
-            </a>
+            <SidebarSet icon={<FaKey />} name="Login" />
           </Link>
         </NavItem>
-        <NavItem className="sign_up p-2">
-          <Link prefetch href="/signup p-2">
-            <a className="sidebar_text">
-              <span>
-                <FaCreativeCommonsBy /> Sign Up
-              </span>
-            </a>
+        <NavItem className="sign_up p-3">
+          <Link prefetch href="/signup">
+            <SidebarSet icon={<FaCreativeCommonsBy />} name="Sign Up" />
           </Link>
         </NavItem>
-        <NavItem className="upload p-2">
+        <NavItem className="upload p-3">
           <Link href="/uploader">
-            <a className="sidebar_text">
-              <span>
-                <FaFileUpload /> Upload
-              </span>
-            </a>
+            <SidebarSet icon={<FaFileUpload />} name="Upload" />
           </Link>
         </NavItem>
-        <NavItem className="video p-2">
+        <NavItem className="video p-3">
           <Link href="/video">
-            <a className="sidebar_text">
-              <span>
-                <FaVideo /> Video
-              </span>
-            </a>
+            <SidebarSet icon={<FaVideo />} name="Video" />
           </Link>
         </NavItem>
       </Nav>
-      <style jsx>{`
-        .sidebar_text {
-          color: #000000;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .Sidebar__maintext {
+            width: 230px;
+          }
+        `}
+      </style>
     </div>
   )
 }
