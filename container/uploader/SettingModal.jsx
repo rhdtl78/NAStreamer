@@ -24,7 +24,7 @@ class SettingModal extends React.Component {
     axios
       .post(`api/modifyVideoMeta?uid=${videoUid}`, { name, hashtag, category })
       .then(({ data }) => {
-        console.log(data)
+        // console.log(data)
         this.props.handleSettingModal()
       })
       .catch(err => {
