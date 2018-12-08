@@ -10,10 +10,12 @@ import {
 
 const SidebarSet = props => (
   <div>
-    <a className="Sidebar__text">
-      <span className="Sidebar__icon">{props.icon}</span>
-      <span>{props.name}</span>
-    </a>
+    <Link href={props.sidelink}>
+      <a className="Sidebar__text">
+        <span className="Sidebar__icon">{props.icon}</span>
+        <span>{props.name}</span>
+      </a>
+    </Link>
     <style jsx>{`
       .Sidebar__text {
         color: #000000;
@@ -40,24 +42,24 @@ const SidebarContent = props => {
       </Navbar>
       <Nav vertical>
         <NavItem className="login p-3">
-          <Link href="/login">
-            <SidebarSet icon={<FaKey />} name="Login" />
-          </Link>
+          <SidebarSet sidelink="/login" icon={<FaKey />} name="Login" />
         </NavItem>
         <NavItem className="sign_up p-3">
-          <Link prefetch href="/signup">
-            <SidebarSet icon={<FaCreativeCommonsBy />} name="Sign Up" />
-          </Link>
+          <SidebarSet
+            sidelink="/signup"
+            icon={<FaCreativeCommonsBy />}
+            name="Sign Up"
+          />
         </NavItem>
         <NavItem className="upload p-3">
-          <Link href="/uploader">
-            <SidebarSet icon={<FaFileUpload />} name="Upload" />
-          </Link>
+          <SidebarSet
+            sidelink="/uploader"
+            icon={<FaFileUpload />}
+            name="Upload"
+          />
         </NavItem>
         <NavItem className="video p-3">
-          <Link href="/video">
-            <SidebarSet icon={<FaVideo />} name="Video" />
-          </Link>
+          <SidebarSet sidelink="/video" icon={<FaVideo />} name="Video" />
         </NavItem>
       </Nav>
       <style jsx>
