@@ -13,7 +13,7 @@ export function uploadVideoFile(file) {
     }
   })
 
-  console.log(request)
+  // console.log(request)
 
   return {
     type: UPLOAD_VIDEOFILE,

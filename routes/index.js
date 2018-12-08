@@ -20,8 +20,14 @@ router.post('/', upload.single('avatar'), function(req, res) {
   video.uploader = req.user._id
   video.src = req.file.path
   video.viewCount = 0
-  video.save()
-  res.json({ success: true, filename: req.file.originalname })
+  video.save((err) => {
+    if (err) throw err;
+    Video.findOne(video, (ferr, targetVideo) => {
+      if (ferr) throw err;
+      console.log(targetVideo._id);
+      res.json({ success: true, filename: req.file.originalname, videoID: targetVideo._id })
+    })
+  })
 })
 
 module.exports = router
