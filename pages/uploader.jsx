@@ -64,7 +64,6 @@ class Uploader extends React.Component {
               width={'20%'}
             />
           )}
-          {/* <Button onClick={this.handleSettingModal}>모달 일단 뛰우기</Button> */}
           <SettingModal
             videoUid={videoID}
             handleSettingModal={this.handleSettingModal}
