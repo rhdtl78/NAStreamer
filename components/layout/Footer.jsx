@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
-import { ICON_NAME } from 'react-icons/fa'
+import { FaUserTie, FaGithub, FaEnvelope } from 'react-icons/fa'
 const Footer = props => {
   return (
     <footer className="page-footer font-small">
-      <span style={{ color: '' }} />
       <div className="container-fluid text-center text-md-left">
         <div className="row">
           <div className="col-md-3 mt-md-0 mt-3">
-            <div className="view overlay z-depth-1-half lg-hidde ">
+            <div className="area view overlay z-depth-1-half lg-hidde ">
               <img
                 src="../image/renex_main_rogo.jpg"
                 className="img-thumbnail"
@@ -16,8 +15,11 @@ const Footer = props => {
             </div>
           </div>
 
-          <div className="col-md-3 mb-3 mb-md-0 ">
-            <h5 className="text"> Developer Member</h5>
+          <div className="area col-md-3 mb-3 mb-md-0 ">
+            <h5 className="/">
+              <FaUserTie />
+              <span className="text">Developer Member</span>
+            </h5>
 
             <ul className="list-unstyled">
               <li>
@@ -35,27 +37,41 @@ const Footer = props => {
             </ul>
           </div>
 
-          <div className="col-md-3 mb-md-0 mb-3">
-            <h5 className="text">Developer Git</h5>
+          <div className="area col-md-3 mb-md-0 mb-3">
+            <h5 className="/">
+              <FaGithub />
+              <span className="text">Developer Git</span>
+            </h5>
 
-            <ul className="list-unstyled">
+            <ul className="github list-unstyled">
               <li>
-                <a href="https://github.com/ponyong">ponyong</a>
+                <a href="https://github.com/ponyong">
+                  <span className="git-text">ponyong</span>
+                </a>
               </li>
               <li>
-                <a href="https://github.com/rhdtl78">rhdtl78</a>
+                <a href="https://github.com/rhdtl78">
+                  <span className="git-text">rhdtl78</span>
+                </a>
               </li>
               <li>
-                <a href="https://github.com/azxca1731">azxca1731</a>
+                <a href="https://github.com/azxca1731">
+                  <span className="git-text">azxca1731</span>
+                </a>
               </li>
               <li>
-                <a href="https://github.com/kmlee95">kmlee95</a>
+                <a href="https://github.com/kmlee95">
+                  <span className="git-text">kmlee95</span>
+                </a>
               </li>
             </ul>
           </div>
 
-          <div className="col-md-3 mb-md-0 mb-3">
-            <h5 className="text">Developer Email</h5>
+          <div className="area col-md-3 mb-md-0 mb-3">
+            <h5 className="/">
+              <FaEnvelope />
+              <span className="text">Developer Email</span>
+            </h5>
 
             <ul className="list-unstyled">
               <li>
@@ -74,19 +90,24 @@ const Footer = props => {
           </div>
         </div>
       </div>
-
-      <div className="footer-copyright text-center">
-        © 2018 Copyright:
-        <a> ReNex Team</a>
-      </div>
-
       <style jsx>{`
         .page-footer {
-          border-top: 1px solid rgb(231, 232, 239);
+          border-top: 1px solid rgb(0, 0, 0);
+          padding-top: 20px;
+          padding-bottom: 20px;
         }
-        .footer-copyright {
-          border-top: 1px solid rgb(231, 232, 239);
+        .copyright {
+          border-top: 5px solid rgb(27, 49, 94);
           background-color: #888888;
+        }
+        .area {
+          border-right: 2px solid rgb(231, 232, 239);
+        }
+        .text {
+          margin-left: 6px;
+        }
+        .git-text {
+          color: #000000;
         }
       `}</style>
     </footer>
